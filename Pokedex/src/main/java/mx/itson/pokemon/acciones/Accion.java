@@ -1,10 +1,7 @@
 package mx.itson.pokemon.acciones;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import mx.itson.pokemon.entidades.Pokemon;
 import mx.itson.pokemon.entidades.RespuestaCaramelos;
@@ -16,9 +13,8 @@ import mx.itson.pokemon.utilerias.RetrofitUtil;
 import retrofit2.Call;
 
 public class Accion {
-
     Main main;
-    ArrayList<Pokemon> pokemones;
+    private ArrayList<Pokemon> pokemones;
 
     public Accion(Main main) {
         this.main = main;
@@ -157,5 +153,15 @@ public class Accion {
             return null;
         }
     }
+
+    public ArrayList<Pokemon> getPokemones() {
+        return pokemones;
+    }
+
+    public void setPokemones(ArrayList<Pokemon> pokemones) {
+        this.pokemones = pokemones;
+    }
+    
+    
 
 }
