@@ -1,5 +1,6 @@
 package mx.itson.pokemon.presentacion;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import mx.itson.pokemon.acciones.Accion;
 import mx.itson.pokemon.entidades.Pokemon;
@@ -59,144 +60,113 @@ public class Main extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(222, 224, 224));
 
         pnlPantalla.setBackground(new java.awt.Color(36, 36, 36));
+        pnlPantalla.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblFotoPokemon.setText("FOTOPOKEMON");
         lblFotoPokemon.setMaximumSize(new java.awt.Dimension(50, 50));
         lblFotoPokemon.setMinimumSize(new java.awt.Dimension(50, 50));
+        pnlPantalla.add(lblFotoPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         lblPokemonIcono.setText("ICONO");
+        pnlPantalla.add(lblPokemonIcono, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, -1, -1));
 
-        lblTipo1.setText("TIPO1");
+        lblTipo1.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("http://149.56.130.193/proyecto-claudio/tipos/dragon.gif")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        pnlPantalla.add(lblTipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, -1, -1));
 
-        lblTipo2.setText("TIPO2");
+        lblTipo2.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("http://149.56.130.193/proyecto-claudio/tipos/fire.gif")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
+        pnlPantalla.add(lblTipo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblNombre.setText("NOMBRE");
+        pnlPantalla.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Nombre");
+        pnlPantalla.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Ataque");
+        pnlPantalla.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 429, -1, -1));
 
-        lblAtaque.setText("ATAQUE");
+        lblAtaque.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblAtaque.setText("000");
+        pnlPantalla.add(lblAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 484, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Defensa");
+        pnlPantalla.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 429, -1, -1));
 
-        lblDefensa.setText("DEFENSA");
+        lblDefensa.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblDefensa.setText("000");
+        pnlPantalla.add(lblDefensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 484, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Salud");
+        pnlPantalla.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 429, -1, -1));
 
-        lblSalud.setText("SALUD");
+        lblSalud.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblSalud.setText("000");
+        pnlPantalla.add(lblSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 484, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("Caramelos");
+        pnlPantalla.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 429, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel9.setText("PC Maximo");
+        pnlPantalla.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(888, 429, -1, -1));
 
-        lblCaramelos.setText("CARAMELOS");
+        lblCaramelos.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblCaramelos.setText("000");
+        pnlPantalla.add(lblCaramelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 484, -1, -1));
 
-        lblPcMax.setText("PCMAX");
+        lblPcMax.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblPcMax.setText("0000");
+        pnlPantalla.add(lblPcMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(888, 484, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Numero");
+        pnlPantalla.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
 
+        lblNumero.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblNumero.setText("NUMERO");
-
-        javax.swing.GroupLayout pnlPantallaLayout = new javax.swing.GroupLayout(pnlPantalla);
-        pnlPantalla.setLayout(pnlPantallaLayout);
-        pnlPantallaLayout.setHorizontalGroup(
-            pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPantallaLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(lblAtaque))
-                .addGap(174, 174, 174)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(lblDefensa))
-                .addGap(182, 182, 182)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(lblSalud))
-                .addGap(157, 157, 157)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(lblCaramelos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
-                    .addComponent(lblPcMax))
-                .addGap(99, 99, 99))
-            .addGroup(pnlPantallaLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(lblFotoPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(209, 209, 209)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPantallaLayout.createSequentialGroup()
-                        .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlPantallaLayout.createSequentialGroup()
-                                .addComponent(lblTipo1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTipo2))
-                            .addComponent(lblPokemonIcono))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlPantallaLayout.createSequentialGroup()
-                        .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(lblNombre))
-                        .addGap(135, 135, 135)
-                        .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNumero)
-                            .addComponent(jLabel3))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        pnlPantallaLayout.setVerticalGroup(
-            pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPantallaLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(lblPokemonIcono)
-                .addGap(95, 95, 95)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFotoPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTipo1)
-                    .addComponent(lblTipo2))
-                .addGap(92, 92, 92)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3))
-                .addGap(26, 26, 26)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(lblNumero))
-                .addGap(111, 111, 111)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(39, 39, 39)
-                .addGroup(pnlPantallaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAtaque)
-                    .addComponent(lblDefensa)
-                    .addComponent(lblSalud)
-                    .addComponent(lblCaramelos)
-                    .addComponent(lblPcMax))
-                .addContainerGap(156, Short.MAX_VALUE))
-        );
+        pnlPantalla.add(lblNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 300, -1, -1));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(pnlPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(pnlPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 1026, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(pnlPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addComponent(pnlPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -204,14 +174,16 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(339, 339, 339)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60))
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +194,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -233,7 +205,7 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -242,10 +214,30 @@ public class Main extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
 
+        lblTipo2.setVisible(false);
         Pokemon pkmn = acc.buscar(txtBuscar.getText());
         
         if (pkmn != null) {
+            acc.setFotoChico(pkmn);
+            acc.setFotoGrande(pkmn);
+            acc.setFotoTipos(pkmn);
+            lblNombre.setText(pkmn.getNombre());
+            lblNumero.setText("#" + String.valueOf(pkmn.getId()));
+            lblAtaque.setText(String.valueOf(pkmn.getPuntosAtaque()));
+            lblDefensa.setText(String.valueOf(pkmn.getPuntosDefensa()));
+            lblSalud.setText(String.valueOf(pkmn.getPuntosEnergia()));
+            if (pkmn.getCaramelosRequeridos() == 0) {
+                
+                lblCaramelos.setText("No evo.");
+                
+                
+            }else{
             
+                lblCaramelos.setText(String.valueOf(pkmn.getCaramelosRequeridos()));
+                
+            }
+            lblPcMax.setText(String.valueOf(pkmn.getPuntosCombateMaximo()));
+            pnlPantalla.setBackground(new Color(81, 173, 96));
             
             
         }else{
@@ -290,26 +282,26 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblAtaque;
-    private javax.swing.JLabel lblCaramelos;
-    private javax.swing.JLabel lblDefensa;
-    private javax.swing.JLabel lblFotoPokemon;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNumero;
-    private javax.swing.JLabel lblPcMax;
-    private javax.swing.JLabel lblPokemonIcono;
-    private javax.swing.JLabel lblSalud;
-    private javax.swing.JLabel lblTipo1;
-    private javax.swing.JLabel lblTipo2;
+    public javax.swing.JLabel lblAtaque;
+    public javax.swing.JLabel lblCaramelos;
+    public javax.swing.JLabel lblDefensa;
+    public javax.swing.JLabel lblFotoPokemon;
+    public javax.swing.JLabel lblNombre;
+    public javax.swing.JLabel lblNumero;
+    public javax.swing.JLabel lblPcMax;
+    public javax.swing.JLabel lblPokemonIcono;
+    public javax.swing.JLabel lblSalud;
+    public javax.swing.JLabel lblTipo1;
+    public javax.swing.JLabel lblTipo2;
     private javax.swing.JPanel pnlPantalla;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables

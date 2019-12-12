@@ -1,7 +1,14 @@
 package mx.itson.pokemon.acciones;
 
+import java.awt.Image;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mx.itson.pokemon.entidades.Pokemon;
 import mx.itson.pokemon.entidades.RespuestaCaramelos;
@@ -13,11 +20,130 @@ import mx.itson.pokemon.utilerias.RetrofitUtil;
 import retrofit2.Call;
 
 public class Accion {
+
     Main main;
     private ArrayList<Pokemon> pokemones;
 
     public Accion(Main main) {
         this.main = main;
+    }
+
+    public void setFotoTipos(Pokemon p) {
+
+        try {
+            main.lblTipo1.setText("");
+            String tipo = p.getTipos().get(0).toLowerCase();
+            String url = "http://149.56.130.193/proyecto-claudio/tipos/" + tipo + ".gif";
+            Image img = ImageIO.read(new URL(url));
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(100, 40, Image.SCALE_SMOOTH));
+            main.lblTipo1.setIcon(img2);
+            main.lblTipo2.setText("");
+            
+            if (p.getTipos().size() == 2) {
+                
+                try {
+                    main.lblTipo2.setVisible(true);
+                    String tipo2 = p.getTipos().get(1).toLowerCase();
+                    url = "http://149.56.130.193/proyecto-claudio/tipos/" + tipo2 + ".gif";
+                    img = ImageIO.read(new URL(url));
+                    img2 = new ImageIcon(img.getScaledInstance(100, 40, Image.SCALE_SMOOTH));
+                    main.lblTipo2.setIcon(img2);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void setFotoChico(Pokemon p) {
+
+        try {
+            main.lblPokemonIcono.setText("");
+            String url = "http://149.56.130.193/proyecto-claudio/chicos/" + p.getNombre() + "_icon.png";
+            Image img = ImageIO.read(new URL(url));
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(200, 200, Image.SCALE_SMOOTH));
+            main.lblPokemonIcono.setIcon(img2);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public void setFotoGrande(Pokemon p) {
+
+        try {
+            main.lblFotoPokemon.setText("");
+            String url = "http://149.56.130.193/proyecto-claudio/grande/" + p.getId() + ".png";
+            Image img = ImageIO.read(new URL(url));
+            ImageIcon img2 = new ImageIcon(img.getScaledInstance(300, 300, Image.SCALE_SMOOTH));
+            main.lblFotoPokemon.setIcon(img2);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Accion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public Image obtenerImagen(String url) {
+
+        try {
+            URL linkFoto = new URL(url);
+            Image foto = null;
+
+            foto = ImageIO.read(linkFoto);
+            return new ImageIcon(foto).getImage();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public Pokemon buscar(String texto) {
+
+        boolean esNumero = false;
+
+        int id = 0;
+
+        try {
+            id = Integer.valueOf(texto);
+            esNumero = true;
+        } catch (Exception e) {
+        }
+
+        Pokemon deseado = null;
+
+        if (esNumero) {
+            //Busqueda por numero
+
+            for (Pokemon p : pokemones) {
+
+                if (p.getId() == id) {
+                    deseado = p;
+                    break;
+                }
+
+            }
+        } else {
+            //Busqueda por nombre
+            for (Pokemon p : pokemones) {
+
+                if (p.getNombre().equalsIgnoreCase(texto)) {
+                    deseado = p;
+                    break;
+                }
+            }
+
+        }
+        return deseado;
+
     }
 
     public void preCargarInformacion() {
@@ -87,7 +213,7 @@ public class Accion {
                 }
             }
         }
-        
+
         for (PokemonPuntosCombateDTO cp : puntosCombate) {
             for (PokemonPuntosCombateDTO pkmn : puntosCombate) {
                 if (pkmn.getPokemon_id() <= 151) {
@@ -104,9 +230,9 @@ public class Accion {
         }
 
         //Prueba
-        for (Pokemon p : pokemones) {
-            System.out.println(String.format("#%s> %s \t| Caramelo:%s | MaxCP:%s | %s", p.getId(), p.getNombre().substring(0, (p.getNombre().length()>8)?8:p.getNombre().length()), p.getCaramelosRequeridos(), p.getPuntosCombateMaximo(), p.getTipos().toString()));
-        }
+//        for (Pokemon p : pokemones) {
+//            System.out.println(String.format("#%s> %s \t| Caramelo:%s | MaxCP:%s | %s", p.getId(), p.getNombre().substring(0, (p.getNombre().length() > 8) ? 8 : p.getNombre().length()), p.getCaramelosRequeridos(), p.getPuntosCombateMaximo(), p.getTipos().toString()));
+//        }
 
     }
 
@@ -142,7 +268,7 @@ public class Accion {
             return null;
         }
     }
-    
+
     public ArrayList<PokemonPuntosCombateDTO> obtenerPuntosCombate() {
         Call<ArrayList<PokemonPuntosCombateDTO>> llamada = RetrofitUtil.getApi().getPuntosCombate();
         try {
@@ -161,7 +287,5 @@ public class Accion {
     public void setPokemones(ArrayList<Pokemon> pokemones) {
         this.pokemones = pokemones;
     }
-    
-    
 
 }
