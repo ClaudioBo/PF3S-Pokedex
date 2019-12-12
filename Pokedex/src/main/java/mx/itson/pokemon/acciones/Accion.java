@@ -39,6 +39,12 @@ public class Accion {
         this.main = main;
     }
 
+    /**
+     * Asigna la imagen del Pokemon especificado en dos labels dependiendo si
+     * tiene mas tipos
+     *
+     * @param p Pokemon para poner
+     */
     public void setFotoTipos(Pokemon p) {
 
         try {
@@ -71,6 +77,11 @@ public class Accion {
 
     }
 
+    /**
+     * Asigna la imagen del Pokemon especificado en una label
+     *
+     * @param p Pokemon para poner
+     */
     public void setFotoChico(Pokemon p) {
 
         try {
@@ -87,6 +98,11 @@ public class Accion {
 
     }
 
+    /**
+     * Asigna la imagen del Pokemon especificado en una label
+     *
+     * @param p Pokemon para poner
+     */
     public void setFotoGrande(Pokemon p) {
 
         try {
@@ -102,6 +118,12 @@ public class Accion {
         }
     }
 
+    /**
+     * Funcion que utlizamos para obtener la imagen de una URL especificada
+     *
+     * @param url Direccion donde esta la imagen alojada
+     * @return Objecto que contiene la imagen
+     */
     public Image obtenerImagen(String url) {
 
         try {
@@ -117,6 +139,13 @@ public class Accion {
 
     }
 
+    /**
+     * Busca a un Pokemon por medio de lo que ingrese el Usuario Puede ser por
+     * un numero de pokemon (ID) o tambien por su nombre
+     *
+     * @param texto Texto ingresado por el usuario
+     * @return Objecto de tipo Pokemon
+     */
     public Pokemon buscar(String texto) {
 
         boolean esNumero = false;
@@ -278,9 +307,10 @@ public class Accion {
     }
 
     /**
-     * Aqui se llama a la API por medio de Retrofit,
-     * para obtener a los Pokemones con sus nombres y puntos de combate, etc
-     * y retornara la respuesta deserealizada
+     * Aqui se llama a la API por medio de Retrofit, para obtener a los
+     * Pokemones con sus nombres y puntos de combate, etc y retornara la
+     * respuesta deserealizada
+     *
      * @return Lista que contiene Pokemones
      */
     public ArrayList<Pokemon> obtenerEstadisticas() {
@@ -290,7 +320,7 @@ public class Accion {
         Call<ArrayList<Pokemon>> llamada = RetrofitUtil.getApi().getEstadisticas();
         try {
             //Aqui se deserealiza
-            return llamada.execute().body(); 
+            return llamada.execute().body();
         } catch (IOException ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Hubo un error al obtener datos de internet\n" + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -298,11 +328,13 @@ public class Accion {
         }
     }
 
-        /**
-     * Aqui se llama a la API por medio de Retrofit,
-     * para obtener los caramelos que necesita cada pokemon para evolucionar
-     * y retornara la respuesta deserealizada
-     * @return Objecto que contiene ID del Pokemon y su respectiva cantidad para evolucionar
+    /**
+     * Aqui se llama a la API por medio de Retrofit, para obtener los caramelos
+     * que necesita cada pokemon para evolucionar y retornara la respuesta
+     * deserealizada
+     *
+     * @return Objecto que contiene ID del Pokemon y su respectiva cantidad para
+     * evolucionar
      */
     public RespuestaCaramelos obtenerCaramelos() {
         /**
@@ -320,10 +352,11 @@ public class Accion {
     }
 
     /**
-     * Aqui se llama a la API por medio de Retrofit,
-     * para obtener a los Pokemones con sus tipos
-     * y retornara la respuesta deserealizada
-     * @return Lista que contiene una clase con ID de Pokemon y su lista de tipos
+     * Aqui se llama a la API por medio de Retrofit, para obtener a los
+     * Pokemones con sus tipos y retornara la respuesta deserealizada
+     *
+     * @return Lista que contiene una clase con ID de Pokemon y su lista de
+     * tipos
      */
     public ArrayList<PokemonTipoDTO> obtenerTipos() {
         /**
@@ -341,10 +374,12 @@ public class Accion {
     }
 
     /**
-     * Aqui se llama a la API por medio de Retrofit,
-     * para obtener a los Pokemones con su puntos maximos de combate
-     * y retornara la respuesta deserealizada
-     * @return Lista que contiene Pokemones con su ID y puntos maximos de combate
+     * Aqui se llama a la API por medio de Retrofit, para obtener a los
+     * Pokemones con su puntos maximos de combate y retornara la respuesta
+     * deserealizada
+     *
+     * @return Lista que contiene Pokemones con su ID y puntos maximos de
+     * combate
      */
     public ArrayList<PokemonPuntosCombateDTO> obtenerPuntosCombate() {
         /**
@@ -363,6 +398,7 @@ public class Accion {
 
     /**
      * Esto regresara la lista de todos los Pokemones
+     *
      * @return Lista contenedora de Pokemones
      */
     public ArrayList<Pokemon> getPokemones() {
@@ -371,6 +407,7 @@ public class Accion {
 
     /**
      * Esto reemplazara la lista de Pokemones
+     *
      * @param pokemones Lista nueva contenedora de Pokemones
      */
     public void setPokemones(ArrayList<Pokemon> pokemones) {

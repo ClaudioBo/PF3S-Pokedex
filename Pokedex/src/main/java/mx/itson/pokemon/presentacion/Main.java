@@ -5,10 +5,19 @@ import javax.swing.JOptionPane;
 import mx.itson.pokemon.acciones.Accion;
 import mx.itson.pokemon.entidades.Pokemon;
 
+/**
+ * Esta clase es la principal donde esta la interfaz, y donde hace el
+ * llamado los metodos de la clase Accion
+ */
 public class Main extends javax.swing.JFrame {
 
     Accion acc;
 
+    /**
+     * Constructor de la clase Main donde se aprovecha para preparar el frame
+     * para ser mostrado y tambien se aprovecha de obtener la informacion de los
+     * pokemones de una vez.
+     */
     public Main() {
         initComponents();
         acc = new Accion(this);
@@ -105,44 +114,54 @@ public class Main extends javax.swing.JFrame {
         pnlPantalla.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ataque");
-        pnlPantalla.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 429, -1, -1));
+        pnlPantalla.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
         lblAtaque.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblAtaque.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAtaque.setText("000");
-        pnlPantalla.add(lblAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 484, -1, -1));
+        pnlPantalla.add(lblAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Defensa");
-        pnlPantalla.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 429, -1, -1));
+        pnlPantalla.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 530, 80, -1));
 
         lblDefensa.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblDefensa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDefensa.setText("000");
-        pnlPantalla.add(lblDefensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 484, -1, -1));
+        pnlPantalla.add(lblDefensa, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 80, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Salud");
-        pnlPantalla.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 429, -1, -1));
+        pnlPantalla.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 60, -1));
 
         lblSalud.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblSalud.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSalud.setText("000");
-        pnlPantalla.add(lblSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 484, -1, -1));
+        pnlPantalla.add(lblSalud, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 480, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Caramelos");
-        pnlPantalla.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 429, -1, -1));
+        pnlPantalla.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("PC Maximo");
-        pnlPantalla.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(888, 429, -1, -1));
+        pnlPantalla.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
 
         lblCaramelos.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblCaramelos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCaramelos.setText("000");
-        pnlPantalla.add(lblCaramelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 484, -1, -1));
+        pnlPantalla.add(lblCaramelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 80, -1));
 
         lblPcMax.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lblPcMax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPcMax.setText("0000");
-        pnlPantalla.add(lblPcMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(888, 484, -1, -1));
+        pnlPantalla.add(lblPcMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 100, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Numero");
@@ -211,12 +230,17 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Buscara el Pokemon, y si encuentra uno, mostrara todos los datos en
+     * pantalla
+     * @param evt Objecto requerido para el JFrame
+     */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
 
         lblTipo2.setVisible(false);
         Pokemon pkmn = acc.buscar(txtBuscar.getText());
-        
+
         if (pkmn != null) {
             acc.setFotoChico(pkmn);
             acc.setFotoGrande(pkmn);
@@ -227,27 +251,29 @@ public class Main extends javax.swing.JFrame {
             lblDefensa.setText(String.valueOf(pkmn.getPuntosDefensa()));
             lblSalud.setText(String.valueOf(pkmn.getPuntosEnergia()));
             if (pkmn.getCaramelosRequeridos() == 0) {
-                
+
                 lblCaramelos.setText("No evo.");
-                
-                
-            }else{
-            
+
+            } else {
+
                 lblCaramelos.setText(String.valueOf(pkmn.getCaramelosRequeridos()));
-                
+
             }
             lblPcMax.setText(String.valueOf(pkmn.getPuntosCombateMaximo()));
             pnlPantalla.setBackground(new Color(81, 173, 96));
-            
-            
-        }else{
-        
+
+        } else {
+
             JOptionPane.showMessageDialog(this, "No se encontro pokemon");
-        
+
         }
-        
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    /**
+     * Funcion necesario para el funcionamiento del programa
+     * @param args 
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

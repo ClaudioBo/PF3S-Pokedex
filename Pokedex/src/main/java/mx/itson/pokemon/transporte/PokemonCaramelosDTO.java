@@ -1,7 +1,6 @@
 package mx.itson.pokemon.transporte;
 /**
- * 
- * @author Clase que contiene los caramelos de cada pokemon.
+ * Clase que contiene los caramelos de cada pokemon.
  */
 public class PokemonCaramelosDTO {
 
