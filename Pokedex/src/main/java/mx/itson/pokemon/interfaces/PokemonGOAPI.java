@@ -2,7 +2,7 @@ package mx.itson.pokemon.interfaces;
 
 import java.util.ArrayList;
 import mx.itson.pokemon.entidades.Pokemon;
-import mx.itson.pokemon.entidades.RespuestaCaramelos;
+import mx.itson.pokemon.transporte.RespuestaCaramelosDTO;
 import mx.itson.pokemon.transporte.PokemonPuntosCombateDTO;
 import mx.itson.pokemon.transporte.PokemonTipoDTO;
 import retrofit2.Call;
@@ -43,7 +43,7 @@ public interface PokemonGOAPI {
         "x-rapidapi-key: e3981d1a64msh434517943223e49p1f4e4cjsn9da7123fda32"
     })
     @GET("pokemon_candy_to_evolve.json")
-    Call<RespuestaCaramelos> getCaramelos();
+    Call<RespuestaCaramelosDTO> getCaramelos();
 
     /**
      * Llamado que solicita que tipos son cada Pokemon.

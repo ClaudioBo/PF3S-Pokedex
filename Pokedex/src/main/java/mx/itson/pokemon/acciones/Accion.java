@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mx.itson.pokemon.entidades.Pokemon;
-import mx.itson.pokemon.entidades.RespuestaCaramelos;
+import mx.itson.pokemon.transporte.RespuestaCaramelosDTO;
 import mx.itson.pokemon.presentacion.Main;
 import mx.itson.pokemon.transporte.PokemonCaramelosDTO;
 import mx.itson.pokemon.transporte.PokemonPuntosCombateDTO;
@@ -202,7 +202,7 @@ public class Accion {
         ArrayList<Pokemon> desordenado = obtenerEstadisticas();
         ArrayList<PokemonTipoDTO> tipos = obtenerTipos();
         ArrayList<PokemonPuntosCombateDTO> puntosCombate = obtenerPuntosCombate();
-        RespuestaCaramelos caramelos = obtenerCaramelos();
+        RespuestaCaramelosDTO caramelos = obtenerCaramelos();
 
         /**
          * Aqui de la lista de los Pokemones que recibimos de la API, solo
@@ -336,11 +336,11 @@ public class Accion {
      * @return Objecto que contiene ID del Pokemon y su respectiva cantidad para
      * evolucionar
      */
-    public RespuestaCaramelos obtenerCaramelos() {
+    public RespuestaCaramelosDTO obtenerCaramelos() {
         /**
          * Aqui llama a Retrofit para realizar el llamado a la API
          */
-        Call<RespuestaCaramelos> llamada = RetrofitUtil.getApi().getCaramelos();
+        Call<RespuestaCaramelosDTO> llamada = RetrofitUtil.getApi().getCaramelos();
         try {
             //Aqui se deserealiza
             return llamada.execute().body();

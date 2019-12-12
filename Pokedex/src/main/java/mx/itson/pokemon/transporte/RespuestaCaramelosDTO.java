@@ -1,4 +1,4 @@
-package mx.itson.pokemon.entidades;
+package mx.itson.pokemon.transporte;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import mx.itson.pokemon.transporte.PokemonCaramelosDTO;
  * 
  * Recibe las lista de los caramelos que los pokemones necesitan para evolucionar.
  */
-public class RespuestaCaramelos {
+public class RespuestaCaramelosDTO {
 
     @SerializedName("12")
     private ArrayList<PokemonCaramelosDTO> doceCaramelos;
